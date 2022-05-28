@@ -1,11 +1,11 @@
-
-#Step 1 
 import random
 from hangman_words import word_list
-
+from hangman_art import logo
 #TODO-1 - Randomly choose a word from the word_list and assign it to a variable called chosen_word.
+print(logo)
 word = random.choice(word_list)
 #TODO-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
+from hangman_art import stages
 check=[]
 for i in range(0,len(word)):
     check.append("_")
@@ -30,10 +30,12 @@ while(gameover == 0):
   if check3 == 0:
     lives -=1
     if lives == 0:
+      print(stages[lives])
       print("you lost.. Game Over")
       gameover =1
     else:
       print("oops you lost a life")
+      print(stages[lives])
       print(check)
   else:
     print(check)
@@ -44,4 +46,3 @@ while(gameover == 0):
     if check2 == 0:
       print("Yay you guessed the word")
       gameover += 1
-#TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.

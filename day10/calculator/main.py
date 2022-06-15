@@ -14,7 +14,7 @@ def divide(a,b):
     return("Invalid Input")
 
 check_end  = 0
-num1 = int(input("Enter a number: "))
+num1 = float(input("Enter a number: "))
 operator ={
   "+": add,
   "*": multiply,
@@ -26,7 +26,7 @@ for operation in operator:
 
 while (check_end == 0):
   op = input("Enter the operation you want to execute: ")
-  num2 = int(input("Enter next number: "))
+  num2 = float(input("Enter next number: "))
   calc = operator[op]
   ans = calc(num1,num2)
   print(f"= {ans}")

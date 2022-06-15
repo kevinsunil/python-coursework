@@ -14,25 +14,24 @@ def divide(a,b):
     return("Invalid Input")
 
 check_end  = 0
+num1 = int(input("Enter a number: "))
+operator ={
+  "+": add,
+  "*": multiply,
+  "-": subtract,
+  "/": divide
+}
+for operation in operator:
+    print (operation)
+
 while (check_end == 0):
-  num1 = int(input("Enter first number: "))
-  num2 = int(input("Enter second number: "))
-  operator = input("""Enter the operation you want to carry out: 
-                   Addition : +
-                   Subtraction: -
-                   Multiplication: *
-                   Division: /
-                   : """)
-  if (operator == '+'):
-    print(add(num1,num2))
-  elif (operator  == '-'):
-    print(subtract(num1,num2))
-  elif (operator == '*'):
-    print(multiply(num1,num2))
-  elif (operator == '/'):
-    print (divide(num1,num2))
-  else:
-    print("Invalid input")
-  checker = input ("Enter y if you want to try it again else press n")
+  op = input("Enter the operation you want to execute: ")
+  num2 = int(input("Enter next number: "))
+  calc = operator[op]
+  ans = calc(num1,num2)
+  print(f"= {ans}")
+  checker = input ("Enter y if you want to try it again else press n: ")
   if (checker == 'n'):
     check_end +=1
+  elif (checker == 'y'):
+    num1 = ans

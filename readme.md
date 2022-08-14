@@ -7,6 +7,7 @@ These are the resources I refered to while creating this repo
   - 100 Days of code by Angela Yu
 - Documentation:
   - Random Module: https://docs.python.org/3/library/random.html
+  - Reeborg: https://reeborg.ca/index_en.html
   - Turtle Graphics: https://docs.python.org/3/library/turtle.html
   - Trinket Colors: https://trinket.io/docs/colors
 # Day by day Report
@@ -25,3 +26,18 @@ These are the resources I refered to while creating this repo
 ## day-5
 - day 5 introduced the basic python loop commands, how to use them effectively in a program
 - the project of the day is Password Generator
+
+## day-6
+- python function was introduced through solving problems on reeborg
+- the project of the day was a maze solver for reeborg mazes
+
+## day-7
+- day 7 focused more on how to deal with a problem statement , how to break into parts and how to use flowcharts to simplify the working model
+- the project of the day was hangman game
+
+## day-8
+- day 8 dealt with function parameters , the difference between positional and keyword arguments
+- the project of the day was caesar's cipher
+
+## day-9
+- 

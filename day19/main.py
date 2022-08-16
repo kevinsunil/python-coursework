@@ -1,13 +1,24 @@
 from turtle import Turtle, Screen
 import random
 
+# Method 2
+y_positions = [-100, -50, 0, 50, 100]
+colors = ["Red", "Green", "Blue", "Yellow", "Pink"]
+turtles = []
+for turtle_num in range(0, 5):
+    new_turtle = Turtle(shape="turtle")
+    new_turtle.color(colors[turtle_num])
+    new_turtle.penup()
+    new_turtle.goto(-230, y_positions[turtle_num])
+    turtles.append(new_turtle)
 screen = Screen()
-test_turtle = Turtle()
-race_turtle = Turtle(shape="turtle")
-race_turtle_2 = Turtle(shape="turtle")
-race_turtle_3 = Turtle(shape="turtle")
-race_turtle_4 = Turtle(shape="turtle")
-race_turtle_5 = Turtle(shape="turtle")
+# test_turtle = Turtle()
+# Method 1
+# race_turtle = Turtle(shape="turtle")
+# race_turtle_2 = Turtle(shape="turtle")
+# race_turtle_3 = Turtle(shape="turtle")
+# race_turtle_4 = Turtle(shape="turtle")
+# race_turtle_5 = Turtle(shape="turtle")
 
 
 def turtle_setup():
@@ -29,45 +40,58 @@ def turtle_setup():
 
 
 def turtle_move():
-    race_turtle.fd(random.randint(10, 50))
-    race_turtle_2.fd(random.randint(10, 50))
-    race_turtle_3.fd(random.randint(10, 50))
-    race_turtle_4.fd(random.randint(10, 50))
-    race_turtle_5.fd(random.randint(10, 50))
+    # race_turtle.fd(random.randint(10, 50))
+    # race_turtle_2.fd(random.randint(10, 50))
+    # race_turtle_3.fd(random.randint(10, 50))
+    # race_turtle_4.fd(random.randint(10, 50))
+    # race_turtle_5.fd(random.randint(10, 50))
+
+    # Method 2
+    for turtle in turtles:
+        turtle.fd(random.randint(10, 50))
 
 
 def turtle_check_end():
-    if race_turtle.xcor() >= 210:
-        return False
-    elif race_turtle_2.xcor() >= 210:
-        return False
-    elif race_turtle_3.xcor() >= 210:
-        return False
-    elif race_turtle_4.xcor() >= 210:
-        return False
-    elif race_turtle_5.xcor() >= 210:
-        return False
-    else:
-        return True
+    # if race_turtle.xcor() >= 210:
+    #     return False
+    # elif race_turtle_2.xcor() >= 210:
+    #     return False
+    # elif race_turtle_3.xcor() >= 210:
+    #     return False
+    # elif race_turtle_4.xcor() >= 210:
+    #     return False
+    # elif race_turtle_5.xcor() >= 210:
+    #     return False
+    # else:
+    #     return True
+    # Method 2
+    for turtle in turtles:
+        if turtle.xcor() >= 210:
+            return False
+    return True
 
 
 def check_race_winner():
-    if race_turtle.xcor() >= 210:
-        return "red"
-    elif race_turtle_2.xcor() >= 210:
-        return "green"
-    elif race_turtle_3.xcor() >= 210:
-        return "blue"
-    elif race_turtle_4.xcor() >= 210:
-        return "yellow"
-    elif race_turtle_5.xcor() >= 210:
-        return "pink"
+    # if race_turtle.xcor() >= 210:
+    #     return "red"
+    # elif race_turtle_2.xcor() >= 210:
+    #     return "green"
+    # elif race_turtle_3.xcor() >= 210:
+    #     return "blue"
+    # elif race_turtle_4.xcor() >= 210:
+    #     return "yellow"
+    # elif race_turtle_5.xcor() >= 210:
+    #     return "pink"
+    #Method 2
+    for turtle in turtles:
+        if turtle.xcor() >= 210:
+            return turtle.pencolor()
 
 
 def turtle_race():
     screen.setup(width=500, height=400)
     user_input = screen.textinput(title="Place your bet", prompt="Who's going to win? Enter a color: ")
-    turtle_setup()
+    # turtle_setup()
     race_on = True
     while race_on:
         turtle_move()
@@ -111,3 +135,4 @@ turtle_race()
 # screen.onkeypress(anti_clockwise_turn, "d")
 # screen.onkey(clear, "space")
 screen.exitonclick()
+

@@ -47,6 +47,13 @@ class Snake:
     def extend(self):
         self.add_body(self.all_snakes[-1].position())
 
+    def reset_snake(self):
+        for snake in self.all_snakes:
+            snake.goto(1000, 1000)
+        self.all_snakes.clear()
+        self.create_snake()
+        self.head = self.all_snakes[0]
+
     def check_end(self):
         snake = self.all_snakes[0]
         if snake.xcor() > 290 or snake.xcor() < -290 or snake.ycor() > 290 or snake.ycor() < -290:

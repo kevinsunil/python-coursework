@@ -31,11 +31,14 @@ while game_on:
     check_move()
     snake.move()
     if snake.check_end():
-        game_on = False
-        scoreboard.game_over()
+        scoreboard.reset_score()
+        snake.reset_snake()
+        # game_on = False
+        # scoreboard.game_over()
     if snake.head.distance(food) < 15:
         food.food_spawn()
         snake.extend()
         scoreboard.update_score()
 
 screen.exitonclick()
+

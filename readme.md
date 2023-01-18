@@ -11,6 +11,8 @@ These are the resources I refered to while creating this repo
   - Turtle Graphics: https://docs.python.org/3/library/turtle.html
   - Trinket Colors: https://trinket.io/docs/colors
   - Colorgram: https://pypi.org/project/colorgram.py/
+  - Tkinter Module: http://tcl.tk/man/tcl8.6/TkCmd/entry.htm
+  
 # Day by day Report
 ## day-2
 - this mainly deals with the data types in python and it's conversion

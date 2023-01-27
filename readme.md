@@ -12,6 +12,7 @@ These are the resources I refered to while creating this repo
   - Trinket Colors: https://trinket.io/docs/colors
   - Colorgram: https://pypi.org/project/colorgram.py/
   - Tkinter Module: http://tcl.tk/man/tcl8.6/TkCmd/entry.htm
+  - Pyperclip: https://pypi.org/project/pyperclip/
   
 # Day by day Report
 ## day-2

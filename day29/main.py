@@ -3,6 +3,7 @@ import tkinter
 from tkinter import messagebox
 import random
 import pyperclip
+import json
 
 FONT_NAME = "Courier"
 
@@ -33,6 +34,12 @@ def save():
     website = Input_1.get()
     email = Input_2.get()
     password = Input_3.get()
+    new_data = {
+        website: {
+            "email": email,
+            "password": password
+        }
+    }
 
     if len(website) == 0 or len(password) == 0:
         messagebox.showwarning(title="Reminder", message="Do not leave any fields empty")
@@ -42,10 +49,35 @@ def save():
                                                        f"\nProceed to save?")
 
         if check_confirm:
-            with open("password_details.txt", "a") as file:
-                file.write(f"{website} | {email} | {password}\n")
-                Input_1.delete(0, tkinter.END)
-                Input_3.delete(0, tkinter.END)
+            try:
+                with open("password_details.json", "r") as file:
+                    data = json.load(file)
+            except FileNotFoundError:
+                with open("password_details.json", "w") as file:
+                    json.dump(new_data, file, indent=4)
+            else:
+                data.update(new_data)
+                with open("password_details.json", "w") as file:
+                    json.dump(data, file, indent=4)
+            Input_1.delete(0, tkinter.END)
+            Input_3.delete(0, tkinter.END)
+
+
+# ---------------------------- SEARCH FUNCTION ------------------------------- #
+
+def search_website():
+    website = Input_1.get()
+    try:
+        with open("password_details.json", "r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        messagebox.showwarning(title="Error", message="No data file found")
+    else:
+        if website in data:
+            messagebox.showinfo(title=website, message=f"email: {data[website]['email']} \npassword: {data[website]['password']} ")
+        else:
+            messagebox.showwarning(title=website, message="Details not found")
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = tkinter.Tk()
@@ -64,8 +96,8 @@ label_2.grid(column=0, row=2)
 label_3 = tkinter.Label(text="Password:")
 label_3.grid(column=0, row=3)
 
-Input_1 = tkinter.Entry(width=35)
-Input_1.grid(column=1, columnspan=2, row=1, sticky="EW")
+Input_1 = tkinter.Entry(width=21)
+Input_1.grid(column=1, row=1, sticky="EW")
 Input_1.focus()
 Input_2 = tkinter.Entry(width=35)
 Input_2.grid(column=1, row=2, columnspan=2, sticky="EW")
@@ -77,5 +109,7 @@ button_1 = tkinter.Button(text="Generate Password", highlightthickness=0, comman
 button_1.grid(column=2, row=3, sticky="EW")
 button_2 = tkinter.Button(text="Add", width=36, command=save, highlightthickness=0)
 button_2.grid(column=1, row=4, columnspan=2, sticky="EW")
+button_3 = tkinter.Button(text="Search", command=search_website, highlightthickness=0)
+button_3.grid(column=2, row=1, sticky="EW")
 
 window.mainloop()

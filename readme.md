@@ -13,6 +13,8 @@ These are the resources I refered to while creating this repo
   - Colorgram: https://pypi.org/project/colorgram.py/
   - Tkinter Module: http://tcl.tk/man/tcl8.6/TkCmd/entry.htm
   - Pyperclip: https://pypi.org/project/pyperclip/
+  - SMTP: https://docs.python.org/3/library/smtplib.html
+  - Date Time Module: https://docs.python.org/3/library/datetime.html
   
 # Day by day Report
 ## day-2

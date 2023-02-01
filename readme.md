@@ -15,6 +15,8 @@ These are the resources I refered to while creating this repo
   - Pyperclip: https://pypi.org/project/pyperclip/
   - SMTP: https://docs.python.org/3/library/smtplib.html
   - Date Time Module: https://docs.python.org/3/library/datetime.html
+  - Requests Module: https://docs.python-requests.org/en/latest/
+  - HTTP status codes: https://www.webfx.com/web-development/glossary/http-status-codes/
   
 # Day by day Report
 ## day-2
